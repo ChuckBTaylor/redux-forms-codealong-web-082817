@@ -1,5 +1,10 @@
 export default function manageTodo(state = {
-  todos: [],
+  todos: ["buy groceries"],
 }, action) {
-  return state;
+  switch(action.type){
+    case "ADD_TODO":
+      return {...state, todos: state.todos.concat(action.payload)}
+    default:
+      return state
+  }
 }
